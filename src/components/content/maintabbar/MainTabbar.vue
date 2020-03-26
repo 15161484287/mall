@@ -1,26 +1,25 @@
 <template>
-  <div class="tabbar">
-    <div v-for="item in itemList" class="tabbaritem" @click="changeRouter(item.path)">
-      <TabbarItem :item="item" :activeColor="activeColor">
-        <template #img><img :src="item.img" class="tabbar-img"></template>
-        <template #activeImg><img :src="item.activeImg" class="tabbar-img-active"></template>
+  <Tabbar>
+      <TabbarItem v-for="item in itemList" :item="item" :activeColor="activeColor" @click.native="changeRouter(item.path)" :key="item.title">
+        <template #img><img :src="item.img"></template>
+        <template #activeImg><img :src="item.activeImg"></template>
         <template #title>
           <div class="tabbar-title">
             {{item.title}}
           </div>
         </template>
       </TabbarItem>
-    </div>
-  </div>
+  </Tabbar>
 </template>
 
 <script>
+  import Tabbar from 'components/common/tabbar/Tabbar';
   import TabbarItem from 'components/common/tabbar/TabbarItem';
   export default {
     name: 'MainTabbar',
     data() {
       return {
-        activeColor: '#3C80E6',
+        activeColor: 'red',
         itemList: [{
             img: require('assets/img/home.png'),
             activeImg: require('assets/img/home_active.png'),
@@ -49,6 +48,7 @@
       }
     },
     components: {
+      Tabbar,
       TabbarItem
     },
     methods: {
@@ -62,23 +62,6 @@
 </script>
 
 <style scoped>
-  .tabbar {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
 
-  .tabbaritem {
-    flex: 1;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .tabbar-title {
-    line-height: 20px;
-  }
-  .tabbar-img,
-  .tabbar-img-active {
-    width: 20px;
-  }
+
 </style>

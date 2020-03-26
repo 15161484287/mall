@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <div v-if="!active">
-      <slot name="img"><img :src="item.img"></slot>
+  <div class="tabbaritem">
+    <div v-if="!active" class="tabbar-img">
+      <slot name="img"></slot>
     </div>
-    <div v-else>
-      <slot name="activeImg"><img :src="item.activeImg"></slot>
+    <div v-else class="tabbar-img-active">
+      <slot name="activeImg"></slot>
     </div>
-    <div :style="itemStyle">
+    <div :style="itemStyle" class="tabbar-title">
       <slot name="title">{{item.title}}</slot>
     </div>
   </div>
@@ -37,5 +37,18 @@
   }
 </script>
 
-<style>
+<style scoped>
+  .tabbaritem {
+    flex: 1;
+    text-align: center;
+  }
+  .tabbar-title {
+    line-height: 20px;
+  }
+  .tabbar-img img,
+  .tabbar-img-active img {
+  	width: 24px;
+  	height: 24px;
+  	vertical-align: middle;
+  }
 </style>

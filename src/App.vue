@@ -7,20 +7,25 @@
 
 <script>
   import MainTabbar from 'components/content/maintabbar/MainTabbar.vue';
+  import Vue from 'vue';
+  import {
+    Swipe,
+    SwipeItem,
+  } from 'vant';
 
-export default {
-  name: 'App',
-  components: {
-    MainTabbar
-  },
-	data() {
-		return {
-
-		}
-	},
-}
+  Vue.use(Swipe);
+  Vue.use(SwipeItem);
+  export default {
+    name: 'App',
+    components: {
+      MainTabbar
+    },
+    data() {
+      return {}
+    },
+  }
 </script>
 
 <style>
-@import "assets/css/base.css";
+  @import "assets/css/base.css";
 </style>
