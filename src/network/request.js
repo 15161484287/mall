@@ -6,7 +6,7 @@ import {
 export function request(config) {
   // 创建实例
   const instance = axios.create({
-    baseURL: 'http://123.207.32.32:8000/api/wh',
+    baseURL: 'http://123.207.32.32:8000/api/h3',
     timeout: 5000,
     method: 'GET'
   });

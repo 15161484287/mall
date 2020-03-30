@@ -1,20 +1,16 @@
 <template>
   <div id="app">
     <MainTabbar></MainTabbar>
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
   import MainTabbar from 'components/content/maintabbar/MainTabbar.vue';
   import Vue from 'vue';
-  import {
-    Swipe,
-    SwipeItem,
-  } from 'vant';
-
-  Vue.use(Swipe);
-  Vue.use(SwipeItem);
+ 
   export default {
     name: 'App',
     components: {
@@ -28,4 +24,7 @@
 
 <style>
   @import "assets/css/base.css";
+  .van-list__error-text, .van-list__finished-text, .van-list__loading {
+    flex: 1!important;
+  }
 </style>
