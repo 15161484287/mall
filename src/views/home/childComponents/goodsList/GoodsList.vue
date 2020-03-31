@@ -49,6 +49,9 @@
         refreshing: false
       }
     },
+    mounted() {
+      
+    },
     components: {
       GoodItem,
       List,
