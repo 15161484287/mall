@@ -18,8 +18,6 @@
 </template>
 
 <script>
-  import Utils from '../../common/utils.js'
-
   import MainNavBar from 'components/content/mainnavbar/MainNavBar.vue';
   import TabController from 'components/common/tabController/TabController.vue';
 
@@ -109,19 +107,12 @@
       },
     },
     created() {
-      Utils.debounce(this.test, 10000)()
       // 请求首页数据
       this.getHomeMuliData();
-      this.$bus.$on('busEvent',()=> {
-        console.log('busEvent');
-      })
       // 请求商品数据
      // this.initGoods();
     },
     methods: {
-      test() {
-        console.log('测试防抖')
-      },
       /**
        * @description 网络请求相关方法
        */
@@ -158,7 +149,6 @@
             this.goods[type].list.push(...res.data.list);
             this.goods[type].page++;
             this.$refs.goodsList.loading = false;
-            this.$bus.$emit('busEvent');
           })
           .catch(err=> {
             this.goods[type].isEnd = true;

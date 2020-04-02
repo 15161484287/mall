@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <vantImage :src="item.show.img">
+  <div class="goods-item" @click="openDetail">
+    <vantImage :src="item.show.img" class="goods-img">
       <template #loading>
         <Loading type="spinner" size="20" />
       </template>
@@ -33,20 +33,31 @@
       vantImage: Image,
       Lazyload,
       Loading,
+    },
+    methods: {
+      openDetail() {
+        this.$router.push({
+          name: 'Detail',
+          params: {
+            iid: this.item.iid
+          }
+        });
+      }
     }
   }
 </script>
 
 <style scoped>
   .goods-item {
-    width: 50%;
-    padding: 5px 5px 40px 5px;
+    width: calc(50% - 7.5px);
+    padding: 0px 0px 40px 0px;
     position: relative;
   }
 
-  .goods-item img {
+  .goods-img {
     width: 100%;
     border-radius: 10px;
+    overflow: hidden;
   }
 
   .goods-detail {

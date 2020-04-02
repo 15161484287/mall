@@ -27,6 +27,7 @@
   .navbar {
     display: flex;
     line-height: 44px;
+    box-shadow: 1px 0 1px #999;
   }
   .left,
   .right {

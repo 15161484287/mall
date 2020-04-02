@@ -14,7 +14,7 @@ import {
   Vue.use(SwipeItem);
 
 new Vconsole();
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.prototype.$bus = new Vue();
 

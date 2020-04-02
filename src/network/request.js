@@ -12,7 +12,7 @@ export function request(config) {
   });
 
   instance.interceptors.response.use(result => {
-    if (!result.data.success) {
+    if (!result.status === 200) {
       Toast.fail(result.statusText + '\n' + 'status:' + result.status);
     }
     return result.data;

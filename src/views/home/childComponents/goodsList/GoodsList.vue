@@ -1,8 +1,9 @@
 <template>
   <div>
     <PullRefresh v-model="refreshing" @refresh="onRefresh">
-      <List v-model="loading" :finished="isEnd" finished-text="没有更多了" @load="onLoad" class="goods-list">
-        <GoodItem v-for="(item, index) in list" :item="item" :key="item.shopId + index"></GoodItem>
+      <List v-model="loading" :finished="isEnd" finished-text="没有更多了" @load="onLoad">
+        <div class="goods-list"><GoodItem v-for="(item, index) in list" :item="item" :key="item.show.img"></GoodItem></div>
+
       </List>
     </PullRefresh>
   </div>
@@ -50,7 +51,7 @@
       }
     },
     mounted() {
-      
+
     },
     components: {
       GoodItem,
@@ -63,7 +64,7 @@
       },
       onLoad() {
         this.$emit('getMoreData');
-      }
+      },
     }
   }
 </script>
